@@ -1,0 +1,17 @@
+<!-- templates/arquitectura/home.html -->
+{% extends "base.html" %}
+
+{% block title %}Inicio | Explorador Django{% endblock %}
+{% block h1 %}Inicio{% endblock %}
+
+{% block content %}
+  <div class="card">
+    <p><strong>Ruta actual:</strong> <code>{{ ruta }}</code></p>
+    <p><strong>Método:</strong> <code>{{ metodo }}</code></p>
+  </div>
+
+  <div class="card">
+    <p class="muted">Esta página existe para observar el ciclo básico:</p>
+    <p><code>URL → View → Template → Response</code></p>
+  </div>
+{% endblock %}

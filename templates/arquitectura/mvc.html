@@ -1,0 +1,32 @@
+<!-- templates/arquitectura/mvc.html -->
+{% extends "base.html" %}
+
+{% block title %}MTV | Explorador Django{% endblock %}
+{% block h1 %}MTV mínimo (Model / Template / View){% endblock %}
+
+{% block content %}
+  <div class="card">
+    <p><strong>Total de notas:</strong> <code>{{ total_notas }}</code></p>
+    <p class="muted">Este template consume un QuerySet desde la view.</p>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0;">Últimas 10 notas</h3>
+
+    {% if notas %}
+      <ul>
+        {% for n in notas %}
+          <li>
+            <strong>{{ n.titulo }}</strong>
+            <span class="muted">— {{ n.creado_en }}</span>
+            {% if n.contenido %}
+              <div class="muted">{{ n.contenido|truncatechars:120 }}</div>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="muted">Aún no hay notas en la base de datos.</p>
+    {% endif %}
+  </div>
+{% endblock %}
